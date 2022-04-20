@@ -90,6 +90,6 @@ rockButton.addEventListener('click', () => {
 paperButton.addEventListener('click', () => {
     console.log('scissors')
 })
-scissors.addEventListener('click', () => {
+scissorsButton.addEventListener('click', () => {
     console.log('paper')
 })
