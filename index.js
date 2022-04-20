@@ -1,3 +1,6 @@
+let playerScore = 0
+let computerScore = 0
+
 const computerPlay = () => {
     let computerChoice = (Math.round(Math.random() * 2));
 
@@ -36,20 +39,41 @@ const playRound = (playerSelection, computerSelection) => {
         playerSelection === 'paper' && computerSelection === 'rock' ||
         playerSelection === 'scissors' && computerSelection === 'paper') {
         console.log(`Player: ${playerSelection} vs Computer: ${computerSelection}`)
-        return ('Player wins')
+        console.log('Player wins')
+        playerScore++
+        console.log(`Player Score: ${playerScore} Computer Score: ${computerScore}`)
     } else if (
         playerSelection === 'rock' && computerSelection === 'paper' ||
         playerSelection === 'paper' && computerSelection === 'scissors' ||
         playerSelection === 'scissors' && computerSelection === 'rock') {
         console.log(`Player: ${playerSelection} vs Computer: ${computerSelection}`)
-        return ('Computer wins')
+        console.log('Computer wins')
+        computerScore++
+        console.log(`Player Score: ${playerScore} Computer Score: ${computerScore}`)
     } else if (playerSelection === computerSelection) {
         console.log(`Player: ${playerSelection} vs Computer: ${computerSelection}`)
-        return 'Draw'
+        console.log('Draw')
+        console.log(`Player Score: ${playerScore} Computer Score: ${computerScore}`)
     } else {
         console.log('somethings wrong')
 
     }
 }
 
-console.log(playRound(playerPrompt(), computerPlay()))
+// console.log(playRound(playerPrompt(), computerPlay()))
+
+const game = () => {
+    for (let i = 0; i < 5; i++) {
+        playRound(playerPrompt(), computerPlay())
+    }
+
+    if (playerScore > computerScore) {
+        console.log('Player wins the match')
+    } else if (playerScore < computerScore) {
+        console.log('Computer wins the match')
+    } else if (playerScore === computerScore) {
+        console.log('Nobody wins')
+    }
+}
+
+game()
