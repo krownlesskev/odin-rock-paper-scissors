@@ -1,15 +1,10 @@
 const rockButton = document.querySelector('.rock-button');
 const paperButton = document.querySelector('.paper-button');
 const scissorsButton = document.querySelector('.scissors-button');
-
-
+const resultsWindow = document.querySelector('.results-window')
 
 let playerScore = 0
 let computerScore = 0
-let playerChoice
-let computerChoice
-
-
 
 const computerPlay = () => {
     let computerChoice = (Math.round(Math.random() * 2));
@@ -28,68 +23,39 @@ const computerPlay = () => {
     return computerChoice
 }
 
-const playerPrompt = () => {
-    let playerChoice = prompt('Rock, Paper Scissors?').toLowerCase();
-
-    switch (playerChoice) {
-        case 'rock':
-            return playerChoice
-        case 'paper':
-            return playerChoice
-        case 'scissors':
-            return playerChoice
-        default:
-            return 'Please enter a valid choice'
-    }
-}
-
 const playRound = (playerSelection, computerSelection) => {
     if (
         playerSelection === 'rock' && computerSelection === 'scissors' ||
         playerSelection === 'paper' && computerSelection === 'rock' ||
         playerSelection === 'scissors' && computerSelection === 'paper') {
-        console.log(`Player: ${playerSelection} vs Computer: ${computerSelection}`)
-        console.log('Player wins')
-        playerScore++
-        console.log(`Player Score: ${playerScore} Computer Score: ${computerScore}`)
+            playerScore++
+        return `Player Chose: ${playerSelection} and Computer Chose: ${computerSelection}`
     } else if (
         playerSelection === 'rock' && computerSelection === 'paper' ||
         playerSelection === 'paper' && computerSelection === 'scissors' ||
         playerSelection === 'scissors' && computerSelection === 'rock') {
-        console.log(`Player: ${playerSelection} vs Computer: ${computerSelection}`)
-        console.log('Computer wins')
-        computerScore++
-        console.log(`Player Score: ${playerScore} Computer Score: ${computerScore}`)
+            computerScore++
+        return `Player Chose: ${playerSelection} and Computer Chose: ${computerSelection}`
     } else if (playerSelection === computerSelection) {
-        console.log(`Player: ${playerSelection} vs Computer: ${computerSelection}`)
-        console.log('Draw')
-        console.log(`Player Score: ${playerScore} Computer Score: ${computerScore}`)
+        return `Player Chose: ${playerSelection} and Computer Chose: ${computerSelection}`
     } else {
         console.log('somethings wrong')
-
     }
 }
 
 
-// const game = () => {
-//     playRound(playerPrompt(), computerPlay())
-
-//     if (playerScore > computerScore) {
-//         console.log('Player wins the match')
-//     } else if (playerScore < computerScore) {
-//         console.log('Computer wins the match')
-//     } else if (playerScore === computerScore) {
-//         console.log('Nobody wins')
-//     }
-// }
-
-
 rockButton.addEventListener('click', () => {
-    playRound('rock', computerPlay())
+    const rockChoice = document.createElement('p');
+    rockChoice.textContent = playRound('rock', computerPlay());
+    resultsWindow.appendChild(rockChoice);
 })
 paperButton.addEventListener('click', () => {
-    playRound('paper', computerPlay())
+    const paperChoice = document.createElement('p');
+    paperChoice.textContent = playRound('paper', computerPlay());
+    resultsWindow.appendChild(paperChoice);
 })
 scissorsButton.addEventListener('click', () => {
-    playRound('scissors', computerPlay())
+    const scissorsChoice = document.createElement('p');
+    scissorsChoice.textContent = playRound('scissors', computerPlay());
+    resultsWindow.appendChild(scissorsChoice);
 })
