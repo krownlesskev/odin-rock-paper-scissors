@@ -71,25 +71,25 @@ const playRound = (playerSelection, computerSelection) => {
 }
 
 
-const game = () => {
-    playRound(playerPrompt(), computerPlay())
+// const game = () => {
+//     playRound(playerPrompt(), computerPlay())
 
-    if (playerScore > computerScore) {
-        console.log('Player wins the match')
-    } else if (playerScore < computerScore) {
-        console.log('Computer wins the match')
-    } else if (playerScore === computerScore) {
-        console.log('Nobody wins')
-    }
-}
+//     if (playerScore > computerScore) {
+//         console.log('Player wins the match')
+//     } else if (playerScore < computerScore) {
+//         console.log('Computer wins the match')
+//     } else if (playerScore === computerScore) {
+//         console.log('Nobody wins')
+//     }
+// }
 
 
 rockButton.addEventListener('click', () => {
-    console.log('rock')
+    playRound('rock', computerPlay())
 })
 paperButton.addEventListener('click', () => {
-    console.log('scissors')
+    playRound('paper', computerPlay())
 })
 scissorsButton.addEventListener('click', () => {
-    console.log('paper')
+    playRound('scissors', computerPlay())
 })
