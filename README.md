@@ -2,4 +2,4 @@
 
 ## Part of the Odin Project Curriculum
 
-Built this project using Vanilla JavaScript
+Built this project using HTML, CSS and Vanilla JavaScript
