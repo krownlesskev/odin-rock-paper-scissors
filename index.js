@@ -63,10 +63,8 @@ const playRound = (playerSelection, computerSelection) => {
 // console.log(playRound(playerPrompt(), computerPlay()))
 
 const game = () => {
-    for (let i = 0; i < 5; i++) {
-        playRound(playerPrompt(), computerPlay())
-    }
-
+    playRound(playerPrompt(), computerPlay())
+    
     if (playerScore > computerScore) {
         console.log('Player wins the match')
     } else if (playerScore < computerScore) {
