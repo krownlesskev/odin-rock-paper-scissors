@@ -1,5 +1,15 @@
+const rockButton = document.querySelector('.rock-button');
+const paperButton = document.querySelector('.paper-button');
+const scissorsButton = document.querySelector('.scissors-button');
+
+
+
 let playerScore = 0
 let computerScore = 0
+let playerChoice
+let computerChoice
+
+
 
 const computerPlay = () => {
     let computerChoice = (Math.round(Math.random() * 2));
@@ -60,11 +70,10 @@ const playRound = (playerSelection, computerSelection) => {
     }
 }
 
-// console.log(playRound(playerPrompt(), computerPlay()))
 
 const game = () => {
     playRound(playerPrompt(), computerPlay())
-    
+
     if (playerScore > computerScore) {
         console.log('Player wins the match')
     } else if (playerScore < computerScore) {
@@ -74,4 +83,13 @@ const game = () => {
     }
 }
 
-// game()
+
+rockButton.addEventListener('click', () => {
+    console.log('rock')
+})
+paperButton.addEventListener('click', () => {
+    console.log('scissors')
+})
+scissors.addEventListener('click', () => {
+    console.log('paper')
+})
